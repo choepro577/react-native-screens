@@ -106,8 +106,9 @@ class SafeAreaView(
         val newSystemInsets =
             insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
 
-        if (newSystemInsets != currentSystemInsets) {
-            currentSystemInsets = EdgeInsets.fromInsets(newSystemInsets)
+        val newEdgeInsets = EdgeInsets.fromInsets(newSystemInsets)
+        if (newEdgeInsets != currentSystemInsets) {
+            currentSystemInsets = newEdgeInsets
 
             if (insetType.containsSystem()) {
                 needsInsetsUpdate = true
